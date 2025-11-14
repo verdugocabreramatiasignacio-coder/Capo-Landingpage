@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPO: Bioestimulante y Biodegradable para Suelos</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración para usar la fuente Inter y la paleta de colores del proyecto -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#1F3A66',      // Fondo oscuro (Dark Navy Blue)
+                        'accent-bright': '#00BCD4',     // Acento brillante/científico (Bright Turquoise)
+                        'bio-green': '#A7F3D0',         // Verde Menta/Innovación (Natural/Bio)
+                        'text-light': '#E0F7FA',        // Texto principal (Very Light Blue)
+                        'bg-subtle': '#2A518B',         // Fondo sutil/tarjetas
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos base */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1F3A66; 
+            color: #E0F7FA; 
+        }
+        /* Efecto de brillo futurista en elementos clave */
+        .glow {
+            box-shadow: 0 0 18px rgba(167, 243, 208, 0.7); /* Brillo Innovación */
+        }
+        /* Estilo para los pasos del proceso */
+        .step-circle {
+            background-color: #A7F3D0; /* Verde Innovación */
+            color: #1F3A66;
+            transition: all 0.3s;
+        }
+        .step-circle:hover {
+            transform: scale(1.1);
+            background-color: #00BCD4;
+            box-shadow: 0 0 25px rgba(0, 188, 212, 0.9);
+        }
+        /* Estilo para la línea divisora animada */
+        .connector-line {
+            background: linear-gradient(to right, #A7F3D0, #00BCD4, #A7F3D0);
+            animation: pulse-color 4s infinite alternate;
+        }
+        @keyframes pulse-color {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+        /* Estilo para el placeholder/contenedor de las fotos */
+        .photo-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            line-height: 0; /* Elimina espacio extra de img */
+        }
+        .photo-container img {
+            width: 100%;
+            height: 320px; /* Altura fija para visualización */
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .photo-container.hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ESTILO ADICIONAL PARA LA FOTO DE SEQUÍA - Mayor contraste y enfoque en el texto */
+        .problem-photo-container img {
+            height: 400px; /* Altura fija para la imagen principal */
+            filter: grayscale(80%) brightness(80%); 
+            transition: filter 0.5s;
+        }
+        .problem-photo-container:hover img {
+             filter: grayscale(0%) brightness(100%);
+        }
+
+        .member-photo-placeholder {
+            width: 96px; 
+            height: 96px; 
+            border-radius: 50%;
+            background-color: #1F3A66;
+            border: 2px solid #00BCD4; /* Turquesa Científico */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 0.7rem;
+            color: #00BCD4;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navbar (Minimalista) -->
+    <header class="p-4 md:p-6 bg-primary-dark shadow-xl sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold text-bio-green tracking-widest transition duration-300 hover:text-accent-bright">CAPO</a>
+            <nav class="text-sm font-medium">
+                <a href="#solucion" class="hover:text-bio-green transition duration-200 ml-4 md:ml-6">Solución</a>
+                <a href="#tecnologia" class="hover:text-bio-green transition duration-200 ml-4 md:ml-6">Tecnología</a>
+                <a href="#equipo" class="hover:text-bio-green transition duration-200 ml-4 md:ml-6">Equipo</a>
+                <a href="#impacto" class="hover:text-bio-green transition duration-200 ml-4 md:ml-6">Impacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="min-h-[75vh] flex items-center justify-center text-center px-6 pt-20 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+             <svg class="w-full h-full" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0C0 0 460.5 448 720 400C979.5 352 1440 0 1440 0V800H0V0Z" fill="url(#heroGradient)"/>
+                <defs>
+                    <linearGradient id="heroGradient" x1="720" y1="0" x2="720" y2="800" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#A7F3D0" stop-opacity="0.3"/>
+                        <stop offset="1" stop-color="#1F3A66" stop-opacity="0.05"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight mb-6 tracking-tight">
+                <span class="block text-text-light">CÁPSULA HÍDRICA INTELIGENTE</span>
+                <span class="block text-bio-green glow transition duration-500 hover:text-accent-bright">INNOVACIÓN BIOESTIMULANTE CONTRA LA SEQUÍA</span>
+            </h1>
+            <p class="text-xl sm:text-2xl mb-4 font-light text-text-light/80 max-w-2xl mx-auto">
+                CAPO: El hidrogel **100% biodegradable** que optimiza el uso del agua y potencia el crecimiento radicular.
+            </p>
+            <p class="text-sm text-text-light/50 mt-4">Tecnología basada en Alginato de Calcio y *Ascophyllum nodosum*.</p>
+        </div>
+    </section>
+
+    <!-- 2. Problema y Solución - Contexto (Similar a "Nuestra Plataforma") -->
+    <section class="py-24 px-6 bg-bg-subtle border-t border-b border-bio-green/20" id="solucion">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+            
+            <!-- Foto de Contexto: Usando el nombre de archivo exacto: image_bf1a85.jpg -->
+             <div class="problem-photo-container hover-zoom order-2 md:order-1">
+             <img src="img/Sequía-1.jpg" 
+                     alt="Tierra seca y agrietada bajo un sol brillante, simbolizando la sequía prolongada." 
+                     loading="lazy" 
+                     class="w-full object-cover">
+            </div>
+
+            <!-- Descripción -->
+            <div class="md:pl-10 order-1 md:order-2">
+                <span class="text-bio-green uppercase text-sm font-bold tracking-widest">EL CONTEXTO AGRÍCOLA Y HÍDRICO</span>
+                <h2 class="text-4xl font-bold mb-4 text-text-light mt-2">Redefiniendo la Retención de Agua en Chile</h2>
+                <p class="text-lg text-text-light/70 leading-relaxed border-l-4 border-accent-bright pl-4 mb-6">
+                    Frente a la sequía prolongada que afecta desde Coquimbo hasta Los Lagos, los métodos tradicionales y los hidrogeles sintéticos son insuficientes o tóxicos.
+                </p>
+                
+                <h3 class="text-2xl font-bold mb-3 text-bio-green">CAPO: La Respuesta Biológica</h3>
+                <p class="text-lg text-text-light/90">
+                    Nuestra solución es una **matriz biológica natural** a base de <strong class="text-accent-bright">Alginato de Calcio</strong>, que ofrece alta capacidad de retención hídrica (hidrogel) combinada con el poder **bioestimulante** del Extracto de *Ascophyllum nodosum* (alga).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Tecnología y Beneficios - Proceso (Similar a "Estructura Técnica") -->
+    <section class="py-24 px-6 bg-primary-dark/80" id="tecnologia">
+        <div class="max-w-7xl mx-auto">
+            <span class="text-accent-bright uppercase text-sm font-bold tracking-widest block text-center">EL MECANISMO CIENTÍFICO</span>
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-16 mt-3 text-center">Doble Acción: Hidratación y Bioestimulación</h2>
+
+            <div class="relative grid md:grid-cols-4 gap-12">
+                
+                <!-- Conexión Visual (Solo desktop) -->
+                <div class="hidden md:block absolute top-10 left-0 right-0 h-0.5 connector-line z-0"></div>
+
+                <!-- Paso 1: Componentes -->
+                <div class="relative z-10 text-center p-6 bg-bg-subtle rounded-xl shadow-xl border-t-4 border-bio-green">
+                    <div class="w-12 h-12 step-circle flex items-center justify-center rounded-full font-extrabold text-lg mb-4 mx-auto">1</div>
+                    <h3 class="text-xl font-semibold mb-2 text-text-light">Formulación Base</h3>
+                    <p class="text-text-light/70 text-sm">Alginato de Sodio y Extracto de Algas.</p>
+                </div>
+                
+                <!-- Paso 2: Gelificación -->
+                <div class="relative z-10 text-center p-6 bg-bg-subtle rounded-xl shadow-xl border-t-4 border-bio-green">
+                    <div class="w-12 h-12 step-circle flex items-center justify-center rounded-full font-extrabold text-lg mb-4 mx-auto">2</div>
+                    <h3 class="text-xl font-semibold mb-2 text-text-light">Cápsula de Calcio</h3>
+                    <p class="text-text-light/70 text-sm">Reacción de Cloruro de Calcio que forma el Alginato de Calcio.</p>
+                </div>
+                
+                <!-- Paso 3: Retención Hídrica -->
+                <div class="relative z-10 text-center p-6 bg-bg-subtle rounded-xl shadow-xl border-t-4 border-bio-green">
+                    <div class="w-12 h-12 step-circle flex items-center justify-center rounded-full font-extrabold text-lg mb-4 mx-auto">3</div>
+                    <h3 class="text-xl font-semibold mb-2 text-text-light">Agua *On-Demand*</h3>
+                    <p class="text-text-light/70 text-sm">La cápsula absorbe y libera agua lentamente según la necesidad de la raíz.</p>
+                </div>
+                
+                <!-- Paso 4: Bioestimulación -->
+                <div class="relative z-10 text-center p-6 bg-bg-subtle rounded-xl shadow-xl border-t-4 border-bio-green">
+                    <div class="w-12 h-12 step-circle flex items-center justify-center rounded-full font-extrabold text-lg mb-4 mx-auto">4</div>
+                    <h3 class="text-xl font-semibold mb-2 text-text-light">Crecimiento Óptimo</h3>
+                    <p class="text-text-light/70 text-sm">Las fito-hormonas de las algas impulsan la salud y vigor radicular.</p>
+                </div>
+            </div>
+
+             <!-- Bloque de Fotos de Pruebas: Altura y referencia de archivo fija -->
+            <div class="mt-16 max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+                 <div class="photo-container hover-zoom">
+                    <!-- Foto de Gelificación (Usando el nombre de archivo exacto: image_bf2188.jpg) -->
+                <img src="img/Planta.png" 
+                         alt="Dos cápsulas de hidrogel transparentes aplicadas en la base de una plántula en tierra, demostrando la gelificación." 
+                         loading="lazy" 
+                         class="w-full object-cover border-4 border-accent-bright">
+                    <div class="p-3 text-center text-xs bg-bg-subtle text-bio-green font-semibold">PRUEBA 1: DEMOSTRACIÓN DE GELIFICACIÓN (Alginato de Calcio)</div>
+                </div>
+                <div class="photo-container hover-zoom">
+                    <!-- Foto de Disolución (Usando el nombre de archivo exacto: image_bf1a22.jpg) -->
+                <img src="img/Gelificación.png" 
+                         alt="Vaso de precipitado en un agitador magnético con un líquido blanco y espumoso, mostrando la disolución del Alginato." 
+                         loading="lazy" 
+                         class="w-full object-cover border-4 border-accent-bright">
+                    <div class="p-3 text-center text-xs bg-bg-subtle text-bio-green font-semibold">PRUEBA 2: VISUALIZACIÓN DE LOS COMPONENTES EN LABORATORIO</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- 4. Sección de Equipo - (Destacado en el centro, como Elektronet) -->
+    <section class="py-24 px-6 bg-bg-subtle" id="equipo">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-bio-green uppercase text-sm font-bold tracking-widest">LAS MENTES JÓVENES DETRÁS DE CAPO</span>
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-12 mt-3 text-text-light">Nuestro Equipo de Innovadoras</h2>
+
+            <div class="grid sm:grid-cols-3 gap-10">
+                
+                <!-- Miembro 1: Josefa Fontecilla Pérez -->
+                <div class="p-6 bg-primary-dark rounded-xl shadow-2xl hover:shadow-bio-green/30 transition duration-300">
+                    <div class="member-photo-placeholder">FOTO</div>
+                    <h3 class="text-xl font-semibold text-text-light">Josefa Fontecilla Pérez</h3>
+                    <p class="text-bio-green text-sm font-medium mt-1">Investigadora Principal</p>
+                    <p class="text-text-light/70 text-xs mt-2">Lidera el diseño y la formulación del biopolímero.</p>
+                </div>
+                
+                <!-- Miembro 2: Renata Larenas Abarca -->
+                <div class="p-6 bg-primary-dark rounded-xl shadow-2xl hover:shadow-bio-green/30 transition duration-300">
+                    <div class="member-photo-placeholder">FOTO</div>
+                    <h3 class="text-xl font-semibold text-text-light">Renata Larenas Abarca</h3>
+                    <p class="text-bio-green text-sm font-medium mt-1">Desarrollo Experimental</p>
+                    <p class="text-text-light/70 text-xs mt-2">Encargada de la validación, protocolos y pruebas de campo.</p>
+                </div>
+                
+                <!-- Miembro 3: Natalia Navarro Cabello -->
+                <div class="p-6 bg-primary-dark rounded-xl shadow-2xl hover:shadow-bio-green/30 transition duration-300">
+                    <div class="member-photo-placeholder">FOTO</div>
+                    <h3 class="text-xl font-semibold text-text-light">Natalia Navarro Cabello</h3>
+                    <p class="text-bio-green text-sm font-medium mt-1">Asesoría Científica</p>
+                    <p class="text-text-light/70 text-xs mt-2">Apoyo fundamental en la metodología y análisis de resultados.</p>
+                </div>
+            </div>
+
+            <p class="text-lg text-text-light/50 mt-10">
+                Proyecto desarrollado en el <strong class="text-accent-bright font-bold">Colegio Santa Cruz de Unco</strong>, Santa Cruz, Región De O'Higgins, Chile.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- 5. Impacto Agrícola Real / Métricas (Datos Científicos) -->
+    <section class="py-24 px-6 bg-primary-dark" id="impacto">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="text-accent-bright uppercase text-sm font-bold tracking-widest">VALIDACIÓN DE LOS RESULTADOS</span>
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-12 mt-3">Proyecciones Basadas en Evidencia</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Métrica 1: Crecimiento Superior (Símbolo ↑) -->
+                <div class="p-10 bg-bg-subtle rounded-xl border-2 border-bio-green hover:border-accent-bright transition duration-300">
+                    <p class="text-7xl font-extrabold text-bio-green mb-2">↑</p>
+                    <h3 class="text-2xl font-semibold text-text-light">Vigor Radicular</h3>
+                    <p class="text-text-light/70 mt-2">Evidencia de un aumento significativo en la biomasa y crecimiento de raíces en pruebas.</p>
+                </div>
+
+                <!-- Métrica 2: Ahorro de Agua (Símbolo ≈) -->
+                <div class="p-10 bg-bg-subtle rounded-xl border-2 border-bio-green hover:border-accent-bright transition duration-300">
+                    <p class="text-7xl font-extrabold text-accent-bright mb-2">≈</p>
+                    <h3 class="text-2xl font-semibold text-text-light">Optimización Hídrica</h3>
+                    <p class="text-text-light/70 mt-2">Proyección de reducción en la dependencia de riego gracias a la matriz de alginato.</p>
+                </div>
+
+                <!-- Métrica 3: Sostenibilidad (Símbolo ∞) -->
+                <div class="p-10 bg-bg-subtle rounded-xl border-2 border-bio-green hover:border-accent-bright transition duration-300">
+                    <p class="text-7xl font-extrabold text-bio-green mb-2">∞</p>
+                    <h3 class="text-2xl font-semibold text-text-light">Cero Residuos Tóxicos</h3>
+                    <p class="text-text-light/70 mt-2">El biopolímero de algas garantiza una degradación total y segura para el suelo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 6. Llamado a Acción Final -->
+    <section class="py-24 px-6 bg-accent-bright text-primary-dark text-center" id="contacto">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-6">Contáctanos y Fortalece tu Producción</h2>
+            <p class="text-xl mb-10 font-medium">
+                Solicita la documentación técnica completa del proyecto y conoce los siguientes pasos para la implementación piloto.
+            </p>
+            <a href="#" class="inline-block px-12 py-5 text-xl font-bold bg-primary-dark text-accent-bright rounded-xl shadow-2xl shadow-primary-dark/50 transition duration-300 transform hover:scale-105 hover:bg-bg-subtle hover:text-text-light">
+                SOLICITAR INFORMACIÓN
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="p-8 text-center text-text-light/50 text-sm border-t border-accent-bright/20">
+        <div class="max-w-7xl mx-auto">
+            <p>&copy; 2024 CAPO: Hidratante y Bioestimulante Natural. Proyecto de Innovación Agrícola.</p>
+            <p class="mt-1">Colegio Santa Cruz de Unco, Chile.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
